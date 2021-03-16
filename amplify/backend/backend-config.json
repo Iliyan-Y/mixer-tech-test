@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "mixertechtest301f6c03": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
