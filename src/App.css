@@ -1,0 +1,22 @@
+.myBtn {
+  padding: 0.4em;
+  margin: 0.2em;
+  background: rgb(97, 227, 236);
+  border-radius: 8px;
+}
+
+.myBtn:hover {
+  cursor: pointer;
+  background: gold;
+}
+.myBtn:focus {
+  outline: 0;
+}
+
+#delBtn {
+  background: rgb(248, 119, 119);
+}
+
+#delBtn:hover {
+  background: rgb(247, 75, 75);
+}

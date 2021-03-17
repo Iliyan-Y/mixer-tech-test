@@ -8,17 +8,22 @@ import {
 
 const initialFormState = { name: '', description: '', link: '' };
 
-const Crud = () => {
+const Crud = ({ apodData, getRandomPicture }) => {
   const [notes, setNotes] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
+  let [showDescription, setShowDescription] = useState(false);
+  let [showCollection, setShowCollection] = useState(false);
 
   useEffect(() => {
     fetchNotes();
   }, []);
 
+  useEffect(() => {
+    formatCurrentImage();
+  }, [apodData]);
+
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listSavess });
-    console.log(apiData);
     setNotes(apiData.data.listSavess.items);
   }
 
@@ -41,33 +46,74 @@ const Crud = () => {
     });
   }
 
+  let formatCurrentImage = () => {
+    if (apodData) {
+      setFormData({
+        ...formData,
+        'name': `${apodData.title} - ${apodData.date}`,
+        'description': apodData.explanation,
+        'link': apodData.hdurl,
+      });
+    }
+  };
+
   return (
-    <div>
-      <h3>Saved links</h3>
-      <input
-        onChange={(e) => setFormData({ ...formData, 'name': e.target.value })}
-        placeholder="Link Name"
-        value={formData.name}
-      />
-      <input
-        onChange={(e) =>
-          setFormData({ ...formData, 'description': e.target.value })
-        }
-        placeholder="Description"
-        value={formData.description}
-      />
-      <input
-        onChange={(e) => setFormData({ ...formData, 'link': e.target.value })}
-        placeholder="Link"
-        value={formData.link}
-      />
-      <button onClick={createNote}>Create Note</button>
-      <div style={{ marginBottom: 30 }}>
+    <div style={{ marginBottom: 30 }}>
+      <button className="myBtn" onClick={() => createNote()}>
+        Add to my collection
+      </button>
+      <button
+        className="myBtn"
+        onClick={() => setShowCollection(!showCollection)}
+      >
+        {showCollection ? 'Hide Collection' : 'Show Collection'}
+      </button>
+      <button className="myBtn" onClick={() => getRandomPicture()}>
+        Random Picture
+      </button>
+      <div
+        style={{
+          display: showCollection ? 'block' : 'none',
+          marginTop: 10,
+          borderTop: '3px solid black',
+        }}
+      >
+        <h3>Saved Images</h3>
         {notes.map((note) => (
           <div key={note.id || note.name}>
-            <a href={note.link}>{note.name}</a>
-            <p>{note.description}</p>
-            <button onClick={() => deleteNote(note)}>Delete note</button>
+            <h3>{note.name}</h3>
+            <img
+              src={note.link}
+              alt={note.name}
+              style={{ width: '35%', margin: '0 auto' }}
+            />
+            <p
+              style={{
+                margin: '1em auto',
+                display: showDescription ? 'block' : 'none',
+                width: '75vh',
+              }}
+            >
+              {note.description}
+            </p>
+            <div>
+              <button
+                className="myBtn"
+                onClick={() => setShowDescription(!showDescription)}
+              >
+                {showDescription ? 'Hide Description' : 'Show Description'}
+              </button>
+              <button
+                className="myBtn"
+                id="delBtn"
+                onClick={() => {
+                  formatCurrentImage();
+                  deleteNote(note);
+                }}
+              >
+                Delete Image
+              </button>
+            </div>
           </div>
         ))}
       </div>

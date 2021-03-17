@@ -10,7 +10,7 @@ Amplify.configure(config);
 ReactDOM.render(
   <React.StrictMode>
     <div id="WelcomeDiv">
-      <h1>Welcome to the Mixer App</h1>
+      <h1 style={{ color: 'aqua' }}>Welcome to the Mixer App</h1>
     </div>
     <App />
   </React.StrictMode>,
