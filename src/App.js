@@ -1,12 +1,11 @@
 import './App.css';
 import HomePage from './Components/HomePage';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 function App() {
   return (
     <div className="App">
       <HomePage />
-      <AmplifySignOut />
     </div>
   );
 }

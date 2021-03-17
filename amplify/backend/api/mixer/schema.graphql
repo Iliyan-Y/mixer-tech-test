@@ -1,0 +1,6 @@
+type Saves @model {
+  id: ID!
+  name: String!
+  description: String
+  link: String
+}
