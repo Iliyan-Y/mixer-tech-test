@@ -15,6 +15,7 @@ const Crud = ({ apodData, getRandomPicture }) => {
   let [showCollection, setShowCollection] = useState(false);
 
   useEffect(() => {
+    setNotes([]);
     fetchNotes();
   }, []);
 
@@ -57,15 +58,23 @@ const Crud = ({ apodData, getRandomPicture }) => {
     }
   };
 
+  let getCollection = () => {
+    if (!showCollection) {
+      fetchNotes();
+    } else setNotes([]);
+  };
+
+  let handleShowCollection = () => {
+    setShowCollection(!showCollection);
+    getCollection();
+  };
+
   return (
     <div style={{ marginBottom: 30 }}>
       <button className="myBtn" onClick={() => createNote()}>
         Add to my collection
       </button>
-      <button
-        className="myBtn"
-        onClick={() => setShowCollection(!showCollection)}
-      >
+      <button className="myBtn" onClick={() => handleShowCollection()}>
         {showCollection ? 'Hide Collection' : 'Show Collection'}
       </button>
       <button className="myBtn" onClick={() => getRandomPicture()}>

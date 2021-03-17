@@ -8,6 +8,7 @@ export const getSaves = /* GraphQL */ `
       name
       description
       link
+      username
       createdAt
       updatedAt
     }
@@ -25,6 +26,7 @@ export const listSavess = /* GraphQL */ `
         name
         description
         link
+        username
         createdAt
         updatedAt
       }

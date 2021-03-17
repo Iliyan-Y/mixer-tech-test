@@ -2,36 +2,39 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateSaves = /* GraphQL */ `
-  subscription OnCreateSaves {
-    onCreateSaves {
+  subscription OnCreateSaves($username: String) {
+    onCreateSaves(username: $username) {
       id
       name
       description
       link
+      username
       createdAt
       updatedAt
     }
   }
 `;
 export const onUpdateSaves = /* GraphQL */ `
-  subscription OnUpdateSaves {
-    onUpdateSaves {
+  subscription OnUpdateSaves($username: String) {
+    onUpdateSaves(username: $username) {
       id
       name
       description
       link
+      username
       createdAt
       updatedAt
     }
   }
 `;
 export const onDeleteSaves = /* GraphQL */ `
-  subscription OnDeleteSaves {
-    onDeleteSaves {
+  subscription OnDeleteSaves($username: String) {
+    onDeleteSaves(username: $username) {
       id
       name
       description
       link
+      username
       createdAt
       updatedAt
     }

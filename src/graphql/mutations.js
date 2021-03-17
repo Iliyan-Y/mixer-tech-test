@@ -11,6 +11,7 @@ export const createSaves = /* GraphQL */ `
       name
       description
       link
+      username
       createdAt
       updatedAt
     }
@@ -26,6 +27,7 @@ export const updateSaves = /* GraphQL */ `
       name
       description
       link
+      username
       createdAt
       updatedAt
     }
@@ -41,6 +43,7 @@ export const deleteSaves = /* GraphQL */ `
       name
       description
       link
+      username
       createdAt
       updatedAt
     }

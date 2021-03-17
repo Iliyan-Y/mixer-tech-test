@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "mixer",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authmixertechtest301f6c03",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

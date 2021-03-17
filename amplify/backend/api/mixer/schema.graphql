@@ -1,6 +1,7 @@
-type Saves @model {
+type Saves @model @auth(rules: [{ allow: owner, ownerField: "username" }]) {
   id: ID!
   name: String!
   description: String
   link: String
+  username: String
 }

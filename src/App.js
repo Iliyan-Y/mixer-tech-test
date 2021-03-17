@@ -1,6 +1,6 @@
+import React from 'react';
 import './App.css';
 import HomePage from './Components/HomePage';
-import { withAuthenticator } from '@aws-amplify/ui-react';
 import {
   AmplifyAuthenticator,
   AmplifySignUp,
@@ -30,7 +30,6 @@ function App() {
           ]}
         />
         <AmplifySignIn slot="sign-in" usernameAlias="email" />
-
         <HomePage />
       </AmplifyAuthenticator>
     </div>
