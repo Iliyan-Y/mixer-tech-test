@@ -15,7 +15,6 @@ const Crud = ({ apodData, getRandomPicture }) => {
   let [showCollection, setShowCollection] = useState(false);
 
   useEffect(() => {
-    setNotes([]);
     fetchNotes();
   }, []);
 
