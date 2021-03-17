@@ -9,6 +9,9 @@ React, NASA API, AWS: Amplify, Cognito, GraphQL, DYNAMODB
 - If the user wants to discover more images, can do it with one click of a button.
 - The user can add/remove photos and manage the library at any time.
 
+## Preview
+[mixer-app](https://main.d2exud08kpiacn.amplifyapp.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
