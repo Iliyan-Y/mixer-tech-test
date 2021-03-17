@@ -60,10 +60,10 @@ const HomePage = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <h4 style={{ marginBottom: 0 }}>
-        Where you can mix and safe your favorite nasa photos
+        Mix and save your favorite NASA photos
       </h4>
       <h4 style={{ marginTop: 0 }}>
-        Let's start with the Astronomy Picture of the day{' '}
+        Let's start with the Astronomy Picture Of The Day{' '}
       </h4>
       {displayApod()}
       <Crud apodData={apodData} getRandomPicture={getRandomPicture} />
